@@ -21,16 +21,20 @@ export interface CompleteResult {
 
 let client: Anthropic | null = null;
 
-export async function complete(body: CompleteBody): Promise<CompleteResult> {
+// Works on Node (Vercel, Vite dev) and on Netlify's Deno-based edge runtime,
+// where there is no `process` and the key is passed in.
+const envKey = () => (typeof process !== 'undefined' ? process.env.ANTHROPIC_API_KEY : undefined);
+
+export async function complete(body: CompleteBody, apiKey = envKey()): Promise<CompleteResult> {
   const messages: Anthropic.MessageParam[] | null = Array.isArray(body.messages)
     ? body.messages
     : typeof body.prompt === 'string' && body.prompt.trim()
       ? [{ role: 'user', content: body.prompt }]
       : null;
   if (!messages || messages.length === 0) return { status: 400, body: { error: 'Missing prompt or messages' } };
-  if (!process.env.ANTHROPIC_API_KEY) return { status: 503, body: { error: 'AI is not configured on the server' } };
+  if (!apiKey) return { status: 503, body: { error: 'AI is not configured on the server' } };
 
-  client ??= new Anthropic();
+  client ??= new Anthropic({ apiKey });
   const max_tokens = Math.min(Math.max(Number(body.max_tokens) || 4000, 256), MAX_TOKENS_CAP);
   try {
     const message = await client.beta.messages

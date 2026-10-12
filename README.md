@@ -15,7 +15,9 @@ npm run dev                  # http://localhost:5173 (also on your LAN with --ho
 
 ## Put it on your iPhone
 
-1. Deploy to Vercel: import the repo, keep the Vite defaults, and add `ANTHROPIC_API_KEY` under Environment Variables. `api/complete.ts` deploys as a serverless function.
+1. Deploy it, either way works:
+   - **Netlify:** import the repo. `netlify.toml` sets the build, and `netlify/edge-functions/complete.ts` serves the AI proxy. Add `ANTHROPIC_API_KEY` under Site configuration, then Environment variables, and redeploy.
+   - **Vercel:** import the repo with the Vite defaults and add `ANTHROPIC_API_KEY`. `api/complete.ts` deploys as a serverless function.
 2. Open the deployed URL in Safari, tap **Share**, then **Add to Home Screen**.
 3. Open it from the icon. It runs full screen, respects the notch and home bar, and works offline. AI features and exercise photos need a connection.
 
@@ -28,7 +30,8 @@ npm run dev                  # http://localhost:5173 (also on your LAN with --ho
 | `src/logic/runtime.ts` | A small host that runs the logic in React. `setState` applies synchronously, as it did in the prototype. |
 | `src/lib/persist.ts` | Saves workouts, plans, meals and goals to `localStorage`. |
 | `src/lib/settings.ts` | Theme (System / Dark / Light, set on Profile) and first-run state. |
-| `src/lib/ai.ts`, `server/complete.ts`, `api/complete.ts` | AI: the browser calls `POST /api/complete`, which calls Claude (`claude-opus-5-5`) with the server-side key. |
+| `src/lib/ai.ts`, `server/complete.ts` | AI: the browser calls `POST /api/complete`, which calls Claude (`claude-opus-5-5`) with the server-side key. |
+| `netlify/edge-functions/complete.ts`, `api/complete.ts` | That endpoint on Netlify (an edge function that streams a keep-alive so long AI replies don't time out) and on Vercel. |
 | `project/`, `chats/`, `HANDOFF.md` | The original design bundle, kept for reference. |
 
 Navigation uses the URL hash (`#dashboard`, `#session`, …), so each screen can be linked directly.
