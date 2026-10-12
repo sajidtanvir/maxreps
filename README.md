@@ -1,25 +1,40 @@
-# CODING AGENTS: READ THIS FIRST
+# Gym Tracker
 
-This is a **handoff bundle** from Claude Design (claude.ai/design).
+A mobile web app (installable PWA) built from the Claude Design handoff in `project/Gym Tracker.dc.html`.
+It covers workouts and live sessions, a weekly schedule, progress history, and nutrition and diet plans built around food available in Bangladesh.
 
-A user mocked up designs in HTML/CSS/JS using an AI design tool, then exported this bundle so a coding agent can implement the designs for real.
+## Run locally
 
-## What you should do — IMPORTANT
+```bash
+npm install
+cp .env.example .env.local   # add ANTHROPIC_API_KEY to enable the AI features
+npm run dev                  # http://localhost:5173 (also on your LAN with --host)
+```
 
-**Read the chat transcripts first.** There are 1 chat transcript(s) in `chats/`. The transcripts show the full back-and-forth between the user and the design assistant — they tell you **what the user actually wants** and **where they landed** after iterating. Don't skip them. The final HTML files are the output, but the chat is where the intent lives.
+`npm run build` typechecks and builds to `dist/`. `npm run preview` serves the build, including the AI proxy.
 
-**Read `project/Gym Tracker.dc.html` in full.** The user had this file open when they triggered the handoff, so it's almost certainly the primary design they want built. Read it top to bottom — don't skim. Then **follow its imports**: open every file it pulls in (shared components, CSS, scripts) so you understand how the pieces fit together before you start implementing.
+## Put it on your iPhone
 
-**If anything is ambiguous, ask the user to confirm before you start implementing.** It's much cheaper to clarify scope up front than to build the wrong thing.
+1. Deploy to Vercel: import the repo, keep the Vite defaults, and add `ANTHROPIC_API_KEY` under Environment Variables. `api/complete.ts` deploys as a serverless function.
+2. Open the deployed URL in Safari, tap **Share**, then **Add to Home Screen**.
+3. Open it from the icon. It runs full screen, respects the notch and home bar, and works offline. AI features and exercise photos need a connection.
 
-## About the design files
+## How it's put together
 
-The design medium is **HTML/CSS/JS** — these are prototypes, not production code. Your job is to **recreate them pixel-perfectly** in whatever technology makes sense for the target codebase (React, Vue, native, whatever fits). Match the visual output; don't copy the prototype's internal structure unless it happens to fit.
+| Path | What it is |
+|---|---|
+| `src/screens/*.tsx` | One component per design screen (Welcome to Profile). Converted from the design's templates, with the phone frame replaced by the real viewport. |
+| `src/logic/*.js` | The design's behaviour (plans, sessions, schedule, progress, nutrition, diet), split into modules. `AppLogic.renderVals()` produces the values every screen renders. |
+| `src/logic/runtime.ts` | A small host that runs the logic in React. `setState` applies synchronously, as it did in the prototype. |
+| `src/lib/persist.ts` | Saves workouts, plans, meals and goals to `localStorage`. |
+| `src/lib/settings.ts` | Theme (System / Dark / Light, set on Profile) and first-run state. |
+| `src/lib/ai.ts`, `server/complete.ts`, `api/complete.ts` | AI: the browser calls `POST /api/complete`, which calls Claude (`claude-opus-5-5`) with the server-side key. |
+| `project/`, `chats/`, `HANDOFF.md` | The original design bundle, kept for reference. |
 
-**Don't render these files in a browser or take screenshots unless the user asks you to.** Everything you need — dimensions, colors, layout rules — is spelled out in the source. Read the HTML and CSS directly; a screenshot won't tell you anything they don't.
+Navigation uses the URL hash (`#dashboard`, `#session`, …), so each screen can be linked directly.
 
-## Bundle contents
+## Known limitations
 
-- `README.md` — this file
-- `chats/` — conversation transcripts (read these!)
-- `project/` — the `Gym Tracker` project files (HTML prototypes, assets, components)
+- **Demo calendar:** like the design, "today" is fixed at Fri 2 Oct 2026, and history before today is generated sample data. Moving to the real date needs the date logic in `progress.js`, `app.js` and `nutrition.js` reworked.
+- **Local only:** the account is local, with no real sign-in or sync. Data lives on the one device.
+- **Static sections:** some parts of the design are static, such as the Profile weight history and the Session complete summary numbers.

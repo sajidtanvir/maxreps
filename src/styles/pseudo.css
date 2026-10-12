@@ -1,0 +1,12 @@
+/* Hover/focus states from the design (style-hover / style-focus). */
+.focus-1:focus { border-color: #40DBA8 !important; background: rgba(64,219,168,0.05) !important }
+.focus-2:focus { border-color: #40DBA8 !important }
+.focus-3:focus { border-style: solid !important; border-color: #40DBA8 !important }
+.hover-4:hover { border-color: rgba(64,219,168,0.5) !important }
+.hover-5:hover { color: var(--danger) !important }
+.hover-6:hover { background: rgba(255,138,122,0.1) !important }
+.hover-7:hover { color: var(--accT) !important }
+.focus-8:focus { border-color: #6CCBF5 !important }
+.hover-9:hover { background: rgba(var(--w), calc(0.06 * var(--wa))) !important }
+.hover-10:hover { border-color: rgba(64,219,168,0.45) !important }
+.hover-11:hover { border-color: rgba(64,219,168,0.45) !important; color: var(--ink) !important }
