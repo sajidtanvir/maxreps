@@ -4,12 +4,17 @@ import { useEffect, useState, useSyncExternalStore } from 'react';
 export type ThemePref = 'system' | 'dark' | 'light';
 
 const KEY = 'gym-tracker:settings';
-type Settings = { theme: ThemePref; onboarded: boolean };
-const DEFAULTS: Settings = { theme: 'system', onboarded: false };
+// themeV marks settings saved since Dark became the default. Earlier installs
+// stored 'system' without the user choosing it, so they start on Dark once.
+const THEME_V = 2;
+type Settings = { theme: ThemePref; onboarded: boolean; themeV: number };
+const DEFAULTS: Settings = { theme: 'dark', onboarded: false, themeV: THEME_V };
 
 let current: Settings = (() => {
   try {
-    return { ...DEFAULTS, ...JSON.parse(localStorage.getItem(KEY) || '{}') };
+    const saved = JSON.parse(localStorage.getItem(KEY) || '{}');
+    if (saved.themeV !== THEME_V) delete saved.theme;
+    return { ...DEFAULTS, ...saved, themeV: THEME_V };
   } catch {
     return DEFAULTS;
   }

@@ -29,7 +29,7 @@ npm run dev                  # http://localhost:5173 (also on your LAN with --ho
 | `src/logic/*.js` | The design's behaviour (plans, sessions, schedule, progress, nutrition, diet), split into modules. `AppLogic.renderVals()` produces the values every screen renders. |
 | `src/logic/runtime.ts` | A small host that runs the logic in React. `setState` applies synchronously, as it did in the prototype. |
 | `src/lib/persist.ts` | Saves workouts, plans, meals and goals to `localStorage`. |
-| `src/lib/settings.ts` | Theme (System / Dark / Light, set on Profile) and first-run state. |
+| `src/lib/settings.ts` | Theme (Dark by default; System / Dark / Light on Profile) and first-run state. |
 | `src/lib/ai.ts`, `server/complete.ts` | AI: the browser calls `POST /api/complete`, which calls Claude (`claude-opus-5-5`) with the server-side key. |
 | `netlify/edge-functions/complete.ts`, `api/complete.ts` | That endpoint on Netlify (an edge function that streams a keep-alive so long AI replies don't time out) and on Vercel. |
 | `project/`, `chats/`, `HANDOFF.md` | The original design bundle, kept for reference. |

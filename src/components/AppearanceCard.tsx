@@ -1,7 +1,7 @@
 import { setSettings, useSettings, type ThemePref } from '../lib/settings';
 
-// Theme picker on Profile. Replaces the design's Dark/Light tweak, adding a
-// "System" option that follows the phone's appearance setting.
+// Theme picker on Profile. Replaces the design's Dark/Light tweak. Dark is the
+// default; "System" follows the phone's appearance setting.
 const OPTIONS: Array<[ThemePref, string]> = [
   ['system', 'System'],
   ['dark', 'Dark'],

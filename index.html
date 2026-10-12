@@ -17,7 +17,8 @@
       // Apply the saved/system theme before first paint to avoid a flash.
       (function () {
         try {
-          var t = (JSON.parse(localStorage.getItem('gym-tracker:settings') || '{}').theme) || 'system';
+          var s = JSON.parse(localStorage.getItem('gym-tracker:settings') || '{}');
+          var t = (s.themeV === 2 && s.theme) || 'dark';
           if (t === 'system') t = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
           document.documentElement.setAttribute('data-theme', t);
         } catch (e) {}
