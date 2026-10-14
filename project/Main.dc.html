@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<title>Dashboard</title>
+<script src="support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>/* vietnamese */
+@font-face {
+  font-family: 'Barlow Condensed';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/barlowcondensed/v13/HTxwL3I-JCGChYJ8VI-L6OO_au7B4-Lwz3nWuYMBYrp0xg.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Barlow Condensed';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/barlowcondensed/v13/HTxwL3I-JCGChYJ8VI-L6OO_au7B4-Lwz3jWuYMBYrp0xg.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Barlow Condensed';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/barlowcondensed/v13/HTxwL3I-JCGChYJ8VI-L6OO_au7B4-Lwz3bWuYMBYro.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Barlow Condensed';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/barlowcondensed/v13/HTxwL3I-JCGChYJ8VI-L6OO_au7B4873z3nWuYMBYrp0xg.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Barlow Condensed';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/barlowcondensed/v13/HTxwL3I-JCGChYJ8VI-L6OO_au7B4873z3jWuYMBYrp0xg.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Barlow Condensed';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/BarlowCondensed-600.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Barlow Condensed';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/barlowcondensed/v13/HTxwL3I-JCGChYJ8VI-L6OO_au7B46r2z3nWuYMBYrp0xg.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Barlow Condensed';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/barlowcondensed/v13/HTxwL3I-JCGChYJ8VI-L6OO_au7B46r2z3jWuYMBYrp0xg.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Barlow Condensed';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/BarlowCondensed-700.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Figtree';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/figtree/v9/_Xms-HUzqDCFdgfMm4q9DaRvziissg.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Figtree';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/Figtree-400.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Figtree';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/figtree/v9/_Xms-HUzqDCFdgfMm4q9DaRvziissg.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Figtree';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/Figtree-400.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Figtree';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/figtree/v9/_Xms-HUzqDCFdgfMm4q9DaRvziissg.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Figtree';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/Figtree-400.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Figtree';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/figtree/v9/_Xms-HUzqDCFdgfMm4q9DaRvziissg.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Figtree';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/Figtree-400.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+<style>
+body{margin:0}
+*,*::before,*::after{box-sizing:border-box}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit;color:inherit;margin:0}
+.gt-root{--bg:#F3F6F4;--surface:#FFFFFF;--surface2:#EDF2EF;--line:#DCE4DF;--ink:#0D1914;--ink2:#44544D;--ink3:#5B6B64;--accent:#047857;--onAccent:#FFFFFF;--accentText:#047857;--accentSoft:#DDF3E8;--accentSoftInk:#065F46;--bright:#10B981;--hero:#047857;--heroInk:#FFFFFF;--heroInk2:#E1F3EA;--heroLine:rgba(255,255,255,0.22);--heroBtn:#FFFFFF;--heroBtnInk:#065F46;--danger:#B42318;--heat0:#E3EBE7;color-scheme:light}
+.gt-root.gt-dark{--bg:#08110D;--surface:#101B16;--surface2:#17251E;--line:#25382F;--ink:#E8F2EC;--ink2:#A9BBB2;--ink3:#8FA399;--accent:#10B981;--onAccent:#03130C;--accentText:#34D399;--accentSoft:#123828;--accentSoftInk:#6EE7B7;--bright:#10B981;--hero:#0D3A2B;--heroInk:#ECFDF5;--heroInk2:#A9DCC7;--heroLine:rgba(255,255,255,0.16);--heroBtn:#34D399;--heroBtnInk:#03130C;--danger:#F97066;--heat0:#1A2A23;color-scheme:dark}
+.gt-root :focus-visible{outline:2px solid var(--accentText);outline-offset:2px}
+.gt-root input::placeholder,.gt-root textarea::placeholder{color:var(--ink3);opacity:1}
+</style>
+</helmet>
+<div class="gt-root {{themeClass}}" style="width: 390px; min-height: 1420px; display: flex; flex-direction: column; background: var(--bg); color: var(--ink); font-family: 'Figtree', system-ui, -apple-system, sans-serif; font-size: 15px; line-height: 1.45;">
+
+<main style="flex-grow: 1; display: flex; flex-direction: column; gap: 12px; padding: 64px 20px 24px;">
+
+<header style="display: flex; flex-direction: column; gap: 4px; margin-bottom: 8px;">
+<h1 style="margin: 0; font-family: 'Barlow Condensed', system-ui, sans-serif; font-weight: 600; font-size: 38px; line-height: 1.05; color: var(--ink);">Welcome back, Neo</h1>
+<p style="margin: 0; font-size: 15px; color: var(--ink2);">Here's today's plan.</p>
+</header>
+
+<section aria-label="Today's suggested workout" style="display: flex; flex-direction: column; gap: 16px; padding: 22px; border-radius: 22px; background: var(--hero); color: var(--heroInk);">
+<div>
+<div style="font-size: 12px; line-height: 16px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--heroInk2);">Today's suggested workout</div>
+<div style="margin-top: 10px; font-family: 'Barlow Condensed', system-ui, sans-serif; font-weight: 700; font-size: 56px; line-height: 0.95; text-transform: uppercase;">Leg Day</div>
+<div style="margin-top: 4px; font-size: 15px; color: var(--heroInk2);">Quads, hamstrings, glutes, calves</div>
+</div>
+<ol style="list-style: none; margin: 0; padding: 0;">
+<li style="display: flex; align-items: center; gap: 14px; min-height: 46px; border-top: 1px solid var(--heroLine);">
+<span style="width: 24px; font-family: 'Barlow Condensed', system-ui, sans-serif; font-weight: 600; font-size: 18px; color: var(--heroInk2);">01</span>
+<span style="font-size: 16px; font-weight: 600;">Back Squat</span>
+</li>
+<li style="display: flex; align-items: center; gap: 14px; min-height: 46px; border-top: 1px solid var(--heroLine);">
+<span style="width: 24px; font-family: 'Barlow Condensed', system-ui, sans-serif; font-weight: 600; font-size: 18px; color: var(--heroInk2);">02</span>
+<span style="font-size: 16px; font-weight: 600;">Romanian Deadlift</span>
+</li>
+<li style="display: flex; align-items: center; gap: 14px; min-height: 46px; border-top: 1px solid var(--heroLine);">
+<span style="width: 24px; font-family: 'Barlow Condensed', system-ui, sans-serif; font-weight: 600; font-size: 18px; color: var(--heroInk2);">03</span>
+<span style="font-size: 16px; font-weight: 600;">Walking Lunges</span>
+</li>
+<li style="display: flex; align-items: center; gap: 14px; min-height: 46px; border-top: 1px solid var(--heroLine);">
+<span style="width: 24px; font-family: 'Barlow Condensed', system-ui, sans-serif; font-weight: 600; font-size: 18px; color: var(--heroInk2);">04</span>
+<span style="font-size: 16px; font-weight: 600;">Calf Raises</span>
+</li>
+</ol>
+<a href="Workouts.dc.html" style="display: flex; align-items: center; justify-content: center; height: 52px; border-radius: 14px; background: var(--heroBtn); color: var(--heroBtnInk); font-size: 16px; font-weight: 700;">Log it</a>
+</section>
+
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px;">
+<section aria-label="Current streak" style="padding: 16px 16px 14px; border-radius: 18px; border: 1px solid var(--line); background: var(--surface);">
+<div style="font-size: 12px; line-height: 16px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink3);">Current streak</div>
+<div style="margin-top: 10px; font-family: 'Barlow Condensed', system-ui, sans-serif; font-weight: 700; font-size: 56px; line-height: 1; color: var(--accentText); font-variant-numeric: tabular-nums;">4</div>
+<div style="font-size: 14px; color: var(--ink2);">days in a row</div>
+</section>
+<section aria-label="This week" style="padding: 16px 16px 14px; border-radius: 18px; border: 1px solid var(--line); background: var(--surface);">
+<div style="font-size: 12px; line-height: 16px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink3);">This week</div>
+<div style="margin-top: 10px; font-family: 'Barlow Condensed', system-ui, sans-serif; font-weight: 700; font-size: 56px; line-height: 1; color: var(--ink); font-variant-numeric: tabular-nums;">5<span style="font-size: 30px; font-weight: 600; color: var(--ink3);">/5</span></div>
+<div style="font-size: 14px; color: var(--ink2);">workouts logged</div>
+</section>
+</div>
+
+<section aria-label="Protein today" style="padding: 18px; border-radius: 18px; border: 1px solid var(--line); background: var(--surface);">
+<div style="font-size: 12px; line-height: 16px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink3);">Protein today</div>
+<div style="display: flex; align-items: baseline; gap: 6px; margin-top: 8px;">
+<span style="font-family: 'Barlow Condensed', system-ui, sans-serif; font-weight: 700; font-size: 44px; line-height: 1; color: var(--ink); font-variant-numeric: tabular-nums;">74g</span>
+<span style="font-family: 'Barlow Condensed', system-ui, sans-serif; font-weight: 600; font-size: 24px; line-height: 1; color: var(--ink3); font-variant-numeric: tabular-nums;">/ 140g</span>
+<span style="margin-left: auto; font-size: 14px; color: var(--ink2);">logged so far</span>
+</div>
+<div role="progressbar" aria-label="Protein today" aria-valuemin="0" aria-valuemax="140" aria-valuenow="74" style="height: 10px; margin-top: 14px; border-radius: 5px; overflow: hidden; background: var(--surface2);">
+<div style="width: 53%; height: 100%; border-radius: 5px; background: var(--bright);"></div>
+</div>
+</section>
+
+<section aria-label="Close your protein gap" style="padding: 18px 18px 8px; border-radius: 18px; border: 1px solid var(--line); background: var(--surface);">
+<div style="font-size: 12px; line-height: 16px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink3);">Close your protein gap</div>
+<p style="margin: 8px 0 10px; font-size: 14px; color: var(--ink2);">66g protein remaining today — try one of these:</p>
+<ul style="list-style: none; margin: 0; padding: 0;">
+<li style="display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 52px; border-top: 1px solid var(--line);">
+<span style="font-size: 15px; font-weight: 500;">Grilled chicken breast (150g)</span>
+<span style="font-weight: 700; color: var(--accentText); font-variant-numeric: tabular-nums;">46g</span>
+</li>
+<li style="display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 52px; border-top: 1px solid var(--line);">
+<span style="font-size: 15px; font-weight: 500;">Turkey breast (150g)</span>
+<span style="font-weight: 700; color: var(--accentText); font-variant-numeric: tabular-nums;">42g</span>
+</li>
+<li style="display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 52px; border-top: 1px solid var(--line);">
+<span style="font-size: 15px; font-weight: 500;">Salmon fillet (150g)</span>
+<span style="font-weight: 700; color: var(--accentText); font-variant-numeric: tabular-nums;">34g</span>
+</li>
+<li style="display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 52px; border-top: 1px solid var(--line);">
+<span style="font-size: 15px; font-weight: 500;">2 whole eggs + 3 egg whites</span>
+<span style="font-weight: 700; color: var(--accentText); font-variant-numeric: tabular-nums;">27g</span>
+</li>
+<li style="display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 52px; border-top: 1px solid var(--line);">
+<span style="font-size: 15px; font-weight: 500;">Canned tuna (1 can)</span>
+<span style="font-weight: 700; color: var(--accentText); font-variant-numeric: tabular-nums;">27g</span>
+</li>
+</ul>
+</section>
+
+</main>
+
+<nav aria-label="Main" style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0; padding: 8px 8px 30px; border-top: 1px solid var(--line); background: var(--surface);">
+<a href="Main.dc.html" aria-current="page" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; min-height: 52px; font-size: 11px; font-weight: 700; color: var(--accentText);">
+<span style="display: flex; align-items: center; justify-content: center; width: 56px; height: 30px; border-radius: 15px; background: var(--accentSoft);">
+<svg width="24" height="24" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 11 12 3.8 20.5 11"></path><path d="M5.5 9.7V20h13V9.7"></path><path d="M10 20v-5.5h4V20"></path></svg>
+</span>
+Dashboard
+</a>
+<a href="Workouts.dc.html" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; min-height: 52px; font-size: 11px; font-weight: 600; color: var(--ink3);">
+<span style="display: flex; align-items: center; justify-content: center; width: 56px; height: 30px; border-radius: 15px;">
+<svg width="24" height="24" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 6.5v11"></path><path d="M17.5 6.5v11"></path><path d="M3.5 9.5v5"></path><path d="M20.5 9.5v5"></path><path d="M6.5 12h11"></path></svg>
+</span>
+Workouts
+</a>
+<a href="Progress.dc.html" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; min-height: 52px; font-size: 11px; font-weight: 600; color: var(--ink3);">
+<span style="display: flex; align-items: center; justify-content: center; width: 56px; height: 30px; border-radius: 15px;">
+<svg width="24" height="24" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8"></path><path d="M15 7h6v6"></path></svg>
+</span>
+Progress
+</a>
+<a href="Nutrition.dc.html" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; min-height: 52px; font-size: 11px; font-weight: 600; color: var(--ink3);">
+<span style="display: flex; align-items: center; justify-content: center; width: 56px; height: 30px; border-radius: 15px;">
+<svg width="24" height="24" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3v7a2.5 2.5 0 0 0 5 0V3"></path><path d="M8.5 3v18"></path><path d="M17.5 21V3c-2.2 1.4-3.5 4-3.5 7v3h3.5"></path></svg>
+</span>
+Nutrition
+</a>
+<a href="Profile.dc.html" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; min-height: 52px; font-size: 11px; font-weight: 600; color: var(--ink3);">
+<span style="display: flex; align-items: center; justify-content: center; width: 56px; height: 30px; border-radius: 15px;">
+<svg width="24" height="24" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.6"></circle><path d="M4.8 20c.9-3.7 3.6-5.6 7.2-5.6s6.3 1.9 7.2 5.6"></path></svg>
+</span>
+Profile
+</a>
+</nav>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;theme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;light&quot;,&quot;dark&quot;],&quot;default&quot;:&quot;light&quot;},&quot;$preview&quot;:{&quot;width&quot;:390,&quot;height&quot;:1420}}">
+class Component extends DCLogic {
+renderVals() {
+return { themeClass: (this.props.theme ?? 'light') === 'dark' ? 'gt-dark' : '' };
+}
+}
+</script>
+
+
+</body></html>
