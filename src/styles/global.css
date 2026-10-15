@@ -90,7 +90,61 @@ select option { background: var(--opt); color: var(--ink); }
 }
 /* Keep full-screen sheets inside the app column on tablets and desktop. */
 .screen [role='dialog'][aria-modal='true'] { left: var(--col-x) !important; right: var(--col-x) !important; }
-@media (min-width: 431px) {
+@media (min-width: 431px) and (max-width: 599px) {
   html, body { background: var(--desk); }
   .screen { box-shadow: 0 0 0 1px var(--line); }
+}
+
+/* Wide screens: show the app inside a centred iPhone-style frame (390x844).
+   #root is the frame. Its transform makes it the containing block for the
+   app's position: fixed elements (tab bar, sheets, dialogs), so they stay
+   inside the frame. .screen scrolls inside it. Phones keep the full-screen
+   layout above; the min-height guard keeps landscape phones full screen. */
+@media (min-width: 600px) and (min-height: 500px) {
+  :root {
+    --screen-h: 844px;
+    --gutter-l: 16px;
+    --gutter-r: 16px;
+    --col-x: 0px;
+  }
+  html, body { background: #030404; }
+  body {
+    display: flex;
+    min-height: 100vh;
+    padding: 32px 16px;
+    background: radial-gradient(60% 50% at 50% 40%, rgba(64, 219, 168, 0.07), rgba(64, 219, 168, 0) 70%), #030404;
+  }
+  #root {
+    position: relative;
+    box-sizing: content-box;
+    width: 390px;
+    height: 844px;
+    flex-shrink: 0;
+    margin: auto; /* centres in the flex body; falls back to top-aligned when the window is shorter than the frame */
+    overflow: hidden;
+    border: 10px solid #121616;
+    border-radius: 58px;
+    background: var(--bg);
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.08),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.04),
+      0 50px 100px -30px rgba(0, 0, 0, 0.9),
+      0 30px 60px -40px rgba(64, 219, 168, 0.25);
+    transform: translateZ(0);
+    isolation: isolate;
+  }
+  .screen {
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    min-height: 0;
+    margin: 0;
+    padding-top: 12px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    border-radius: 48px;
+    scrollbar-width: none;
+  }
+  .screen::-webkit-scrollbar { display: none; }
 }
