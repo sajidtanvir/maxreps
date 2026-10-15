@@ -1,4 +1,13 @@
-# Local Netlify folder
+# Dependencies and build output
+node_modules
+dist
+*.tsbuildinfo
+
+# Secrets: never commit API keys
+.env
+.env.local
+
+# Local Netlify / Vercel folders
 .netlify
-.netlify
+.vercel
 .agents
