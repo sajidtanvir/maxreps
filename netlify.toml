@@ -1,12 +1,21 @@
+# Live site = the latest Claude Design build in /web (single file, Firebase login, live dates).
+# The React app in /src stays in the repo but is not deployed.
 [build]
-  command = "npm run build"
-  publish = "dist"
+  command = ""
+  publish = "web"
+  functions = "netlify/functions"
 
-[build.environment]
-  NODE_VERSION = "22"
-
-# The service worker must always be re-checked so app updates reach the phone.
 [[headers]]
   for = "/sw.js"
+  [headers.values]
+    Cache-Control = "no-cache"
+
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "no-cache"
+
+[[headers]]
+  for = "/"
   [headers.values]
     Cache-Control = "no-cache"
